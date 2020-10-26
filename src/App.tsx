@@ -24,13 +24,19 @@ function App() {
   const [darkMode, setDarkMode] = useState(true)
   const [textPreview, setTextPreview] = useState("")
   const [cursorPosition, setCursorPosition] = useState(0);
+  const [currentFont, setCurrentFont] = useState("Arial, sans-serif");
   const [fontList] = useState([
-    {text: "Times New Roman", value: "time-new-roman"},
-    {text: "Arial", value: "arial"}
+    {text: "Arial", value: "Arial, sans-serif"},
+    {text: "Andale Mono", value: "Andale Mono, monospace"},
+    {text: "Impact", value: "Impact, fantasy"}
   ]);
 
   const handleTextPreview = (value: string) => {
     setTextPreview(value)
+  }
+
+  const handleFontChange = (fontValue: string) => {
+    setCurrentFont(fontValue)
   }
 
   const handleUpload = async (file: File) => {
@@ -59,7 +65,7 @@ function App() {
         </InputEditorWrapper>
         <MarkdownWrapper>
           <FrontListWrapper>
-            <FontList list={fontList} onChange={() => {}}/>
+            <FontList list={fontList} onChange={handleFontChange}/>
           </FrontListWrapper>
           <PreviewHeaderMarkdown>
             <Text size={"small"}>Preview</Text>
@@ -68,7 +74,7 @@ function App() {
               <Toggle checked={darkMode} onChange={setDarkMode}/>
             </ToggleWrapper>
           </PreviewHeaderMarkdown>
-          <MarkdownContentWrapper dark={darkMode}>
+          <MarkdownContentWrapper dark={darkMode} fontFamily={currentFont}>
             <Markdown source={textPreview}/>
           </MarkdownContentWrapper>
         </MarkdownWrapper>
@@ -128,7 +134,8 @@ const MarkdownWrapper = styled.div`
   flex-direction: column;
   padding-right: 15px;
 `
-const MarkdownContentWrapper = styled.div<{dark: boolean}>`
+const MarkdownContentWrapper = styled.div<{dark: boolean, fontFamily: string}>`
+  font-family: ${({fontFamily}) => fontFamily};
   padding: 0 10px;
   white-space: pre-wrap;
   overflow: auto;
