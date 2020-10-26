@@ -2,7 +2,6 @@
 import React, {useState} from "react";
 import styled, {css} from "styled-components";
 import { rgba } from "polished";
-import { v4 as uuidv4 } from "uuid";
 
 //import components
 import {Toggle} from "./components/molecules/Toggle";
@@ -19,17 +18,24 @@ import {uploadImage} from "./api/services"
 
 //import others
 import {Colors} from "./styles/Colors";
+import {getIdImage} from "./utils/getIdImage";
+
+const LOGO = "https://static.shimba.io/svg/logo_mixed.svg?1602122368";
+
+const FONT_DEFAULT = "Arial, sans-serif";
+
+const LIST_FONTS = [
+  {text: "Arial", value: "Arial, sans-serif"},
+  {text: "Andale Mono", value: "Andale Mono, monospace"},
+  {text: "Impact", value: "Impact, fantasy"}
+]
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
   const [textPreview, setTextPreview] = useState("")
   const [cursorPosition, setCursorPosition] = useState(0);
-  const [currentFont, setCurrentFont] = useState("Arial, sans-serif");
-  const [fontList] = useState([
-    {text: "Arial", value: "Arial, sans-serif"},
-    {text: "Andale Mono", value: "Andale Mono, monospace"},
-    {text: "Impact", value: "Impact, fantasy"}
-  ]);
+  const [currentFont, setCurrentFont] = useState(FONT_DEFAULT);
+  const [fontList] = useState(LIST_FONTS);
 
   const handleTextPreview = (value: string) => {
     setTextPreview(value)
@@ -40,7 +46,7 @@ function App() {
   }
 
   const handleUpload = async (file: File) => {
-    const idImage = `uploading-image__${uuidv4()}`
+    const idImage = getIdImage()
     const textToInsert = `![${idImage}]`
     const textBeforeCursorPosition = textPreview.substring(0, cursorPosition)
     const textAfterCursorPosition = textPreview.substring(cursorPosition, textPreview.length)
@@ -53,7 +59,7 @@ function App() {
   return (
     <Container>
       <HeaderWrapper>
-        <Logo src="https://static.shimba.io/svg/logo_mixed.svg?1602122368" alt="SHIMBA"/>
+        <Logo src={LOGO} alt="SHIMBA"/>
       </HeaderWrapper>
       <PreviewWrapper>
         <InputEditorWrapper>
