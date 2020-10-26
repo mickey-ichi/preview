@@ -3,6 +3,7 @@ import React from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import atomOneDark from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
 import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
 
 // import others
 import {Colors} from "../../../styles/Colors";
@@ -19,6 +20,7 @@ export const Markdown = ({source}: MarkdownProps) => {
   return <ReactMarkdown
     source={source}
     renderers={{
+      image: (props) => <ImageMarkdown {...props}/>,
       code: ({language, value}) => <SyntaxHighlighter
         language={language === "js" ? "javascript" : language}
         style={atomOneDark} wrapLines={true}>
@@ -27,3 +29,10 @@ export const Markdown = ({source}: MarkdownProps) => {
     }}
   />
 }
+
+const ImageMarkdown = styled.img`
+  display: block;
+  width: 95%;
+  height: auto;
+  margin: 2em auto;
+`
