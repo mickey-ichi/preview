@@ -14,13 +14,11 @@ export const Markdown = ({source}: MarkdownProps) => {
   return <ReactMarkdown
     source={source}
     renderers={{
-      code: ({language, value}) => {
-        return <SyntaxHighlighter
-          language={language === "js" ? "javascript" : language}
-          style={atomOneDark} wrapLines={true}>
-          {value || ""}
-        </SyntaxHighlighter>
-      }
+      code: ({language, value}) => <SyntaxHighlighter
+        language={language === "js" ? "javascript" : language}
+        style={atomOneDark} wrapLines={true}>
+        {value || ""}
+      </SyntaxHighlighter>
     }}
   />
 }
