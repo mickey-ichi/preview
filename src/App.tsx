@@ -1,13 +1,11 @@
 //import node_modules
 import React, {useState} from 'react';
-import ReactMarkdown from 'react-markdown';
 import styled from "styled-components";
 import { rgba } from "polished";
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import dracula from 'react-syntax-highlighter/dist/esm/styles/hljs/dracula';
 
 //import components
 import {Toggle} from "./components/molecules/Toggle";
+import {Markdown} from "./components/molecules/Markdown";
 import {Input} from "./components/atoms/Input";
 import {Text} from "./components/atoms/Text";
 import {InputTextArea} from "./components/atoms/InputTextArea";
@@ -43,16 +41,7 @@ function App() {
             </ToggleWrapper>
           </PreviewHeaderMarkdown>
           <MarkdownContentWrapper>
-            <ReactMarkdown
-              source={textPreview}
-              renderers={{
-                code: ({language, value}) => {
-                  return <SyntaxHighlighter language={language} style={dracula} >
-                    {value || ""}
-                  </SyntaxHighlighter>
-                }
-              }}
-            />
+            <Markdown source={textPreview}/>
           </MarkdownContentWrapper>
         </MarkdownWrapper>
       </PreviewWrapper>

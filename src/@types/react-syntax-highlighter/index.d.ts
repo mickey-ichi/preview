@@ -1,2 +1,2 @@
 declare module 'react-syntax-highlighter';
-declare module 'react-syntax-highlighter/dist/esm/styles/hljs/dracula';
+declare module 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
