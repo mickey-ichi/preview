@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import { rgba } from "polished";
+import { v4 as uuidv4 } from 'uuid';
 
 //import components
 import {Toggle} from "./components/molecules/Toggle";
@@ -11,6 +12,9 @@ import {Input} from "./components/atoms/Input";
 import {Text} from "./components/atoms/Text";
 import {Button} from "./components/atoms/Button";
 import {UploadImage} from "./components/molecules/UploadImage";
+
+//import services
+import {uploadImage} from "./api/services"
 
 //import others
 import {Colors} from "./styles/Colors";
@@ -24,11 +28,15 @@ function App() {
     setTextPreview(value)
   }
 
-  const handleUpload = (file: File) => {
-    let textToInsert = "![uploading-image__01ENHT5FHH8PX43RWS1QJX0QWF]"
-    let textBeforeCursorPosition = textPreview.substring(0, cursorPosition)
-    let textAfterCursorPosition = textPreview.substring(cursorPosition, textPreview.length)
-    setTextPreview(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
+  const handleUpload = async (file: File) => {
+    const idImage = `uploading-image__${uuidv4()}`
+    const textToInsert = `![${idImage}]`
+    const textBeforeCursorPosition = textPreview.substring(0, cursorPosition)
+    const textAfterCursorPosition = textPreview.substring(cursorPosition, textPreview.length)
+    const content = textBeforeCursorPosition + textToInsert + textAfterCursorPosition
+    setTextPreview(content)
+    const url = await uploadImage.upload(file)
+    setTextPreview(content.replace(textToInsert, `![](${url})`))
   }
 
   return (
