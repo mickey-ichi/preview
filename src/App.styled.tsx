@@ -17,6 +17,9 @@ export const Container = styled.div`
 export const HeaderWrapper = styled.div`
   padding: 10px 15px;
   margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 export const Logo = styled.img`
   width: 150px;
@@ -40,8 +43,7 @@ export const PreviewHeaderMarkdown = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: auto;
-  padding: 10px 10px 9px 10px;
+  padding: 7.5px 10px;
   margin-top: 5px;
 `
 export const TextToggle = styled(Text)`

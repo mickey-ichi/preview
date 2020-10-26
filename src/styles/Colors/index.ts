@@ -7,6 +7,8 @@ const COLOR_CB00FF = "#cb00ff"
 const COLOR_0C1020 = "#0c1020"
 const COLOR_171B2D = "#171b2d"
 const COLOR_232630 = "#232630"
+const COLOR_CCCCCC = "#cccccc"
+const COLOR_999999 = "#999999"
 
 export const Colors = {
   COLOR_1C2238,
@@ -18,4 +20,6 @@ export const Colors = {
   COLOR_0C1020,
   COLOR_171B2D,
   COLOR_232630,
+  COLOR_CCCCCC,
+  COLOR_999999,
 } as const

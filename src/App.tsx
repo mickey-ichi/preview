@@ -5,10 +5,12 @@ import React, {useState} from "react";
 import {Toggle} from "./components/molecules/Toggle";
 import {Markdown} from "./components/molecules/Markdown";
 import {Editor} from "./components/molecules/Editor";
+import {UploadImage} from "./components/molecules/UploadImage";
 import {FontList} from "./components/molecules/FontList";
+import {IconMenu} from "./components/molecules/IconMenu";
 import {Text} from "./components/atoms/Text";
 import {Button} from "./components/atoms/Button";
-import {UploadImage} from "./components/molecules/UploadImage";
+import {Link} from "./components/atoms/Link";
 
 // import services
 import {uploadImage} from "./api/services"
@@ -71,7 +73,10 @@ function App() {
   return (
     <Container>
       <HeaderWrapper>
-        <Logo src={LOGO} alt="SHIMBA"/>
+        <Link href={"https://shimba.io"}>
+          <Logo src={LOGO} alt="SHIMBA"/>
+        </Link>
+        <IconMenu />
       </HeaderWrapper>
       <PreviewWrapper>
         <InputEditorWrapper>
@@ -98,7 +103,7 @@ function App() {
         </MarkdownWrapper>
       </PreviewWrapper>
       <BottomWrapper>
-        <Button>POST</Button>
+        <Button disabled={true}>POST</Button>
       </BottomWrapper>
     </Container>
   );
