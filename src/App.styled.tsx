@@ -27,7 +27,7 @@ export const Logo = styled.img`
 `
 export const PreviewWrapper = styled.div`
   display: flex;
-  height: calc(100% - 110px);
+  height: calc(100% - 114px);
   padding-bottom: 10px;
 `
 export const InputEditorWrapper = styled.div`
