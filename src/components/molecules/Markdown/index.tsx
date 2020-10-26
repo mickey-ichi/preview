@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 type MarkdownProps = {
   source: string,
 }
-console.log("atomOneDark", atomOneDark);
+
 atomOneDark.hljs.background = "#0c1020"
 atomOneDark.hljs.fontSize = 13
 
