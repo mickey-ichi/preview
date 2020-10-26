@@ -6,9 +6,9 @@ import { rgba } from "polished";
 //import components
 import {Toggle} from "./components/molecules/Toggle";
 import {Markdown} from "./components/molecules/Markdown";
+import {Editor} from "./components/molecules/Editor";
 import {Input} from "./components/atoms/Input";
 import {Text} from "./components/atoms/Text";
-import {InputTextArea} from "./components/atoms/InputTextArea";
 import {Button} from "./components/atoms/Button";
 
 //import others
@@ -17,9 +17,17 @@ import {Colors} from "./styles/Colors";
 function App() {
   const [darkMode, setDarkMode] = useState(true)
   const [textPreview, setTextPreview] = useState("")
+  const [cursorPosition, setCursorPosition] = useState(0);
 
-  const handleTextPreview = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextPreview(e.target.value)
+  const handleTextPreview = (value: string) => {
+    setTextPreview(value)
+  }
+
+  const handleUpload = () => {
+    let textToInsert = " this is the inserted text "
+    let textBeforeCursorPosition = textPreview.substring(0, cursorPosition)
+    let textAfterCursorPosition = textPreview.substring(cursorPosition, textPreview.length)
+    setTextPreview(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
   }
 
   return (
@@ -30,7 +38,10 @@ function App() {
       <PreviewWrapper>
         <InputEditorWrapper>
           <Input placeholder="タイトル"/>
-          <InputTextArea onChange={handleTextPreview}/>
+          <UploadImageWrapper>
+            <Button onClick={handleUpload}>Upload</Button>
+          </UploadImageWrapper>
+          <Editor onCursorPositionChange={setCursorPosition} value={textPreview} onChange={handleTextPreview}/>
         </InputEditorWrapper>
         <MarkdownWrapper>
           <PreviewHeaderMarkdown>
@@ -101,6 +112,11 @@ const MarkdownContentWrapper = styled.div`
   overflow: auto;
   height: 100%;
 `
+
+const UploadImageWrapper = styled.div`
+
+`
+
 const BottomWrapper = styled.div`
   background-color: ${rgba(Colors.COLOR_000000, 0.4)};
   padding: 10px;
