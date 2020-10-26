@@ -34,7 +34,6 @@ export const InputEditorWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
   padding-left: 15px;
   border-right: 1px solid ${Colors.COLOR_232630};
 `
@@ -63,7 +62,7 @@ export const MarkdownContentWrapper = styled.div<{dark: boolean, fontFamily: str
   font-family: ${({fontFamily}) => fontFamily};
   padding: 0 10px;
   white-space: pre-wrap;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100%;
   color: ${Colors.COLOR_FFFFFF};
   background-color: ${Colors.COLOR_171B2D};

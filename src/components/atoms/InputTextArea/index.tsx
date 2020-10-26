@@ -12,5 +12,6 @@ export const InputTextArea = styled.textarea`
   color: ${Colors.COLOR_FFFFFF};
   border: none;
   resize: none;
+  overflow-y: scroll;
 `
 
