@@ -1,8 +1,8 @@
 //import node_modules
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import styled, {css} from "styled-components";
 import { rgba } from "polished";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 //import components
 import {Toggle} from "./components/molecules/Toggle";
