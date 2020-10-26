@@ -1,6 +1,8 @@
+// import node_modules
 import styled from "styled-components";
 import {rgba} from "polished"
 
+// import others
 import {Colors} from "../../../styles/Colors"
 
 export const Input = styled.input`
