@@ -1,7 +1,7 @@
-//import node_modules
+// import node_modules
 import React, {useState} from "react";
 
-//import components
+// import components
 import {Toggle} from "./components/molecules/Toggle";
 import {Markdown} from "./components/molecules/Markdown";
 import {Editor} from "./components/molecules/Editor";
@@ -10,10 +10,10 @@ import {Text} from "./components/atoms/Text";
 import {Button} from "./components/atoms/Button";
 import {UploadImage} from "./components/molecules/UploadImage";
 
-//import services
+// import services
 import {uploadImage} from "./api/services"
 
-//import others
+// import others
 import {getIdImage} from "./utils/getIdImage";
 import {
   Container,
