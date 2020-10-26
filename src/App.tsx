@@ -87,6 +87,7 @@ const Container = styled.div`
 
 const HeaderWrapper = styled.div`
   padding: 10px 15px;
+  margin-bottom: 6px;
 `
 const Logo = styled.img`
   width: 150px;
@@ -94,13 +95,16 @@ const Logo = styled.img`
 `
 const PreviewWrapper = styled.div`
   display: flex;
-  height: calc(100% - 94px);
+  height: calc(100% - 110px);
+  padding-bottom: 10px;
 `
 const InputEditorWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
   overflow: auto;
+  padding-left: 15px;
+  border-right: 1px solid ${Colors.COLOR_232630};
 `
 const PreviewHeaderMarkdown = styled.div`
   background-color: ${rgba(Colors.COLOR_000000, 0.4)};
@@ -108,7 +112,7 @@ const PreviewHeaderMarkdown = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow: auto;
-  padding: 10px;
+  padding: 10px 10px 9px 10px;
   margin-top: 5px;
 `
 const TextToggle = styled(Text)`
@@ -122,6 +126,7 @@ const MarkdownWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  padding-right: 15px;
 `
 const MarkdownContentWrapper = styled.div<{dark: boolean}>`
   padding: 0 10px;
@@ -138,22 +143,19 @@ const MarkdownContentWrapper = styled.div<{dark: boolean}>`
 const UploadImageWrapper = styled.div`
   background-color: ${rgba(Colors.COLOR_000000, 0.4)};
   height: 30px;
-  margin-left: 10px;
   padding: 10px;
   margin-top: 5px;
 `
 const InputCustom = styled(Input)`
-  height: 30px;
-  margin-left: 10px;
+  height: 31px;
   margin-right: 2px;
 `
 const FrontListWrapper = styled.div`
-  padding: 10px 15px;
+  padding: 10px;
   color: ${Colors.COLOR_FFFFFF};
   background-color: ${rgba(Colors.COLOR_000000, 0.2)};
   height: 30px;
   margin-left: 2px;
-  margin-right: 10px;
   border-radius: 5px;
 `
 const BottomWrapper = styled.div`

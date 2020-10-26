@@ -5,7 +5,7 @@ import styled from "styled-components";
 import {Colors} from "../../../styles/Colors";
 
 export const InputTextArea = styled.textarea`
-  background-color: ${Colors.COLOR_1C2238};
+  background-color: ${Colors.COLOR_171B2D};
   height: 100%;
   outline: none;
   padding: 10px;
