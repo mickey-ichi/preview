@@ -27,7 +27,7 @@ export const UploadImage = ({onUpload}: UploadImageProps) => {
   }
 
   return <ContentWrapper onClick={handleClick}>
-    <Text colorType={"white"} size={"small"}>upload image</Text>
+    <Text colorType={"white"} size={"tiny"}>upload image</Text>
     <ImageWrapper>
       <IconImage />
     </ImageWrapper>

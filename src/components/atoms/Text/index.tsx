@@ -5,7 +5,7 @@ import styled, {css} from "styled-components";
 import {Colors} from "../../../styles/Colors";
 
 type TextProps = {
-  size?: "small" | "normal"
+  size?: "small" | "normal" | "tiny"
   colorType?: "white" | "normal"
 }
 
@@ -14,6 +14,12 @@ export const getTextSizes = (props: TextProps) => {
   if(size === "small") {
     return css`
       font-size: 13px;
+      line-height: 1.6;
+    `
+  }
+  if(size === "tiny") {
+    return css`
+      font-size: 12px;
       line-height: 1.6;
     `
   }
@@ -27,7 +33,7 @@ export const getTextColors = (props: TextProps) => {
   const { colorType = "normal" } = props
   if(colorType === "white") {
     return css`
-      color: ${Colors.COLOR_FFFFFF}
+      color: ${Colors.COLOR_FFFFFF};
     `
   }
   return css`
