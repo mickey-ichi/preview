@@ -10,6 +10,7 @@ import {Editor} from "./components/molecules/Editor";
 import {Input} from "./components/atoms/Input";
 import {Text} from "./components/atoms/Text";
 import {Button} from "./components/atoms/Button";
+import {UploadImage} from "./components/molecules/UploadImage";
 
 //import others
 import {Colors} from "./styles/Colors";
@@ -23,8 +24,8 @@ function App() {
     setTextPreview(value)
   }
 
-  const handleUpload = () => {
-    let textToInsert = " this is the inserted text "
+  const handleUpload = (file: File) => {
+    let textToInsert = "![uploading-image__01ENHT5FHH8PX43RWS1QJX0QWF]"
     let textBeforeCursorPosition = textPreview.substring(0, cursorPosition)
     let textAfterCursorPosition = textPreview.substring(cursorPosition, textPreview.length)
     setTextPreview(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
@@ -39,7 +40,7 @@ function App() {
         <InputEditorWrapper>
           <Input placeholder="タイトル"/>
           <UploadImageWrapper>
-            <Button onClick={handleUpload}>Upload</Button>
+            <UploadImage onUpload={handleUpload}/>
           </UploadImageWrapper>
           <Editor onCursorPositionChange={setCursorPosition} value={textPreview} onChange={handleTextPreview}/>
         </InputEditorWrapper>
@@ -114,7 +115,7 @@ const MarkdownContentWrapper = styled.div`
 `
 
 const UploadImageWrapper = styled.div`
-
+  padding: 10px;
 `
 
 const BottomWrapper = styled.div`

@@ -6,6 +6,7 @@ import {Colors} from "../../../styles/Colors";
 
 type TextProps = {
   size?: "small" | "normal"
+  colorType?: "white" | "normal"
 }
 
 export const getTextSizes = (props: TextProps) => {
@@ -22,7 +23,19 @@ export const getTextSizes = (props: TextProps) => {
   `
 }
 
+export const getTextColors = (props: TextProps) => {
+  const { colorType = "normal" } = props
+  if(colorType === "white") {
+    return css`
+      color: ${Colors.COLOR_FFFFFF}
+    `
+  }
+  return css`
+    color: ${Colors.COLOR_5B6488};
+  `
+}
+
 export const Text = styled.span<TextProps>`
-  color: ${Colors.COLOR_5B6488};
+  ${getTextColors}
   ${getTextSizes}
 `
